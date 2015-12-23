@@ -1,0 +1,20 @@
+<div controller="SearchController">
+	<div class="searchContainer">
+		<form>
+			<label>Search</label>
+			<input ng-model="searchKeyword" type="text" class="form-control" placeholder="Lorem Ipsum" />
+		</form>
+	</div>
+	<div class="table-responsive tableContent">
+		<table ng-table="booksTable" class="table table-striped responsive">
+		   <tr ng-repeat="book in data | filter: searchKeyword | orderBy:'volumeInfo.title'">
+			   <td data-title="'Title'" sortable="'volumeInfo.title'">
+				   {{book.volumeInfo.title}}
+			   </td>			    
+			   <td data-title="'Published Date'" sortable="'volumeInfo.publishedDate'">
+				   {{book.volumeInfo.publishedDate}}
+			   </td>		      
+		   </tr>
+		</table> 
+	</div>
+</div>
